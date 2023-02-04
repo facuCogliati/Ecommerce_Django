@@ -20,6 +20,7 @@ def home(request):
         carrito = order.orderitems_set.all()
 
     else:
+        # Si el usurario no esta registrado, se usan cookies para almacenar la informacion
         cookieData = cookieCart(request)
         carrito = cookieData['carrito']
         order = cookieData['order']
@@ -171,7 +172,6 @@ def orderEnded(request):
         items = cookieData['carrito']
         for item in items:
             product = Product.objects.get(id = item['product']['id'])
-            print('------------------------------------------------------LA REPUTA MADRE QUE RE REMIL PARIO ---------------------------------')
             
             jose = orderItems.objects.create(
                 product = product,
