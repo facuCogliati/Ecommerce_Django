@@ -1,0 +1,49 @@
+{% load static %}
+
+<nav class="navbar bg-light fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-brand">Ecoomerce Boos</div>
+      <div>
+        <i class="bi bi-cart navbar-toggler" onclick="showCheck()" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span  class="rounded-circle" style="background-color: #ffffffb9;" id="total-items">{{order.total_cart_items}}</span></i>
+      </div>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Tu Carrito</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <hr>
+        <div class="m-2 fs-4" id="items-total-price">Total: ${{order.total_cart|floatformat:0}}</div>
+        <div class="container carrito-items">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+            {% for items in carrito %}
+            <li class="nav-item">
+              <div class="shop-card">
+                <img src="{{items.product.image.url}}" alt="">
+                <div class="name-product-nav">{{items.product.name}}</div>
+                <div style="display: flex; align-items: center; gap: 7px;">
+                  <div id="items-quantity{{items.product.id}}">{{items.quantify}}</div>
+                  <div style="display: flex; flex-direction: column; padding: 17px 7px;">
+                    <i class="bi bi-caret-up" style="cursor: pointer;"  onclick="addProduct('{{items.product.id}}', 'plus')"></i>
+                    <i class="bi bi-caret-down" style="cursor: pointer;"  onclick="addProduct('{{items.product.id}}', 'less')"></i>
+                  </div>
+                </div>
+                <strong id="total-product{{items.product.id}}">${{items.total_price|floatformat:0}}</strong>
+                <div><i style="color: red; cursor: pointer;" class="bi bi-trash" id="eliminate{{items.product.id}}" onclick="eliminar('{{items.product.id}}')"></i></div>
+              </div>
+            </li>
+            {% endfor %}
+
+          </ul>
+
+        </div>
+
+        <div class="Pay-div">
+        
+          <button type="button" class="btn btn-warning"> <a href="{% url 'checkOut' %}">Pay</a></button>
+      
+        </div>
+
+      </div>
+    </div>
+  </nav>

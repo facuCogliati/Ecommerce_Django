@@ -1,0 +1,98 @@
+
+.shop-card{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    margin: 4px auto;
+    width: 100%;
+}
+
+.shop-card > img {
+    height: 50px;
+    width: 50px;
+}
+
+.Pay-div{
+    display: flex;
+    align-items: center;
+}
+
+.Pay-div > button{
+    width: 100%;
+    height: auto;
+    font-size: 1.9rem;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.login-form {
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.redirect > a:hover{
+    color: #3511d4;
+    
+}
+
+.profile-form-container {
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 50px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgba(0, 0, 0, 0.239) 0px 3px 8px;
+  
+  }
+
+.redirect {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-products > img {
+    object-fit: cover;
+    height: 300px;
+    width: 359px;
+}
+
+.carrito-items{
+    overflow: auto;
+    height: 80vh;
+}
+
+.name-product-nav{
+    width: 130px !important;
+}
+.trash_icon {
+    cursor: pointer;
+    color: red;
+}
+
+.payment-div{
+    display: none;
+}
+
+.que-mierda-pasa{
+    display: none;
+}
+
+.product-img{
+    height: 359px;
+    width: 359px;
+}
